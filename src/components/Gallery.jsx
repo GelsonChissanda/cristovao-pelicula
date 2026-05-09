@@ -77,7 +77,7 @@ export default function Gallery() {
               <button onClick={() => setActive(null)} className="absolute right-5 top-5 z-20 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-black/70 text-2xl text-white transition hover:bg-red-900/70">
                 ×
               </button>
-              <img src={active.src} alt={active.title} className="h-[80vh] w-full object-cover" />
+              <img src={active.src} alt={active.title} className="h-auto max-h-[80vh] w-full object-contain sm:h-[80vh] sm:object-cover" />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 to-transparent p-8">
                 <p className="text-sm uppercase tracking-[0.3em] text-red-300">{active.subtitle}</p>
                 <h3 className="mt-2 text-3xl font-bold text-white">{active.title}</h3>

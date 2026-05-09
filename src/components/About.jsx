@@ -31,7 +31,7 @@ export default function About() {
             <img
               src={imagem}
               alt="Oficina automotiva"
-              className="h-[520px] w-full object-cover"
+              className="h-[420px] w-full object-contain object-center sm:h-[520px] sm:object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
             <div className="absolute bottom-6 left-6 rounded-3xl bg-black/70 px-6 py-4 text-white shadow-neon">
