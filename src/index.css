@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-soft-black text-white;
+  min-height: 100%;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(255,45,85,0.08), transparent 18%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05), transparent 20%);
+  pointer-events: none;
+  opacity: 0.9;
+  z-index: -1;
+}
+
+::selection {
+  background: rgba(255,45,85,0.45);
+  color: white;
+}
+
+.glow-border {
+  box-shadow: 0 0 24px rgba(255,45,85,0.24);
+}
+
+.frosted {
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(18px);
+}
