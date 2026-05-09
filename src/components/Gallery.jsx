@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import premium from "../assets/premium.jpeg";
+import alarme from "../assets/alarme.jpeg";
+import acessorio from "../assets/acessorio.jpeg";
 
 const images = [
   {
     title: 'Película Premium',
-    subtitle: 'Antes e depois',
-    src: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=900&q=80',
+    subtitle: 'Aproveite!',
+    src: premium,
   },
   {
     title: 'GPS e Detalhes',
@@ -15,12 +18,12 @@ const images = [
   {
     title: 'Alarme Automotivo',
     subtitle: 'Proteção total',
-    src: 'https://images.unsplash.com/photo-1549921296-3e63a05ff88a?auto=format&fit=crop&w=900&q=80',
+    src: alarme,
   },
   {
     title: 'Acessórios Premium',
     subtitle: 'Acabamento sofisticado',
-    src: 'https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=900&q=80',
+    src: acessorio,
   },
 ];
 
@@ -37,7 +40,7 @@ export default function Gallery() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {images.map((item, index) => (
+          {images.map((item) => (
             <motion.button
               key={item.title}
               onClick={() => setActive(item)}
@@ -46,7 +49,7 @@ export default function Gallery() {
             >
               <div className="relative h-72 w-full overflow-hidden">
                 <img src={item.src} alt={item.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                 <div className="absolute bottom-6 left-6 text-white">
                   <p className="text-sm uppercase tracking-[0.3em] text-red-300">{item.subtitle}</p>
                   <h3 className="mt-2 text-2xl font-semibold">{item.title}</h3>

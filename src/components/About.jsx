@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import imagem from "../assets/imagem.jpeg"
 
 export default function About() {
   return (
@@ -28,7 +29,7 @@ export default function About() {
             className="relative overflow-hidden rounded-[2rem] border border-red-600/30 bg-black/70 shadow-glow"
           >
             <img
-              src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1200&q=80"
+              src={imagem}
               alt="Oficina automotiva"
               className="h-[520px] w-full object-cover"
             />

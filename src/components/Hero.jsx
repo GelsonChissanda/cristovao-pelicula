@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-
-const heroImage = 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80';
+import carro from "../assets/hero-car.jpeg";
 
 export default function Hero() {
   return (
@@ -66,7 +65,7 @@ export default function Hero() {
         >
           <div className="absolute inset-0 rounded-[2rem] border border-red-600/30 bg-black/40 shadow-neon" />
           <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-black/60 shadow-xl shadow-red-900/10">
-            <img src={heroImage} alt="Carro premium" className="h-[520px] w-full object-cover object-center sm:h-[560px]" />
+            <img src={carro} alt="Carro premium" className="h-[360px] w-full object-contain object-center sm:h-[560px] sm:object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
             <div className="absolute bottom-6 left-6 rounded-3xl border border-red-500/40 bg-black/60 px-6 py-4 text-white shadow-glow">
               <p className="text-xs uppercase tracking-[0.3em] text-red-300">Automotive tuning</p>
