@@ -37,7 +37,7 @@ export default function Hero() {
             transition={{ duration: 1.2 }}
             className="flex flex-col gap-4 sm:flex-row"
           >
-            <a href="https://wa.me/244932376136" className="inline-flex items-center justify-center rounded-full bg-neon-red px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-black shadow-neon transition hover:shadow-glow">
+            <a href="https://wa.me/244932376136?text=Ol%C3%A1%2C%20Crist%C3%B3v%C3%A3o%20Pel%C3%ADculas!%0ATenho%20interesse%20em%20agendar%20um%20servi%C3%A7o%20de%20aplica%C3%A7%C3%A3o%20de%20pel%C3%ADculas.%20Poderia%20me%20informar%20a%20disponibilidade%20e%20os%20pr%C3%B3ximos%20passos%3F" className="inline-flex items-center justify-center rounded-full bg-neon-red px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-black shadow-neon transition hover:shadow-glow">
               Falar no WhatsApp
             </a>
             <a href="#services" className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-red-900/30">
