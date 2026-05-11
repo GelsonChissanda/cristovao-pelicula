@@ -6,8 +6,7 @@ import resultado from "../assets/resultado.jpeg"
 import modelo from "../assets/modelo.jpeg"
 
 const medias = [
-  { type: "image", src: modelo, duration: 2000 },
-  { type: "video", src: video1, duration: 1000 },
+  { type: "video", src: video1, duration: 3000 },
   { type: "image", src: resultado, duration: 3000 },
 ];
 
