@@ -2,15 +2,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import carro from "../assets/hero-car.jpeg";
 import video1 from "../assets/video1.mp4";
-import video2 from "../assets/video2.mp4";
 import resultado from "../assets/resultado.jpeg"
-import resultado2 from "../assets/resultado2.jpeg"
+import modelo from "../assets/modelo.jpeg"
 
 const medias = [
-  { type: "video", src: video1, duration: 2000 },
-  { type: "image", src: resultado, duration: 2000 },
-  { type: "video", src: video2, duration: 2000 },
-  { type: "image", src: resultado2, duration: 2000 },
+  { type: "image", src: modelo, duration: 2000 },
+  { type: "video", src: video1, duration: 1000 },
+  { type: "image", src: resultado, duration: 3000 },
 ];
 
 export default function Hero() {
@@ -99,7 +97,7 @@ export default function Hero() {
           className="relative flex items-center justify-center"
         >
           <div className="absolute inset-0 rounded-[2rem] border border-red-600/30 bg-black/40 shadow-neon" />
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-black/60 shadow-xl shadow-red-900/10 w-full h-full">
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-black/60 shadow-xl shadow-red-900/10 w-full">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
