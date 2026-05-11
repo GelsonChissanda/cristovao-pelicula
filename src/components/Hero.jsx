@@ -1,7 +1,42 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import carro from "../assets/hero-car.jpeg";
+import video1 from "../assets/video1.mp4";
+import video2 from "../assets/video2.mp4";
+import resultado from "../assets/resultado.jpeg"
+import resultado2 from "../assets/resultado2.jpeg"
+
+const medias = [
+  { type: "video", src: video1, duration: 2000 },
+  { type: "image", src: resultado, duration: 2000 },
+  { type: "video", src: video2, duration: 1000 },
+  { type: "image", src: resultado2, duration: 2000 },
+];
 
 export default function Hero() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const currentMedia = medias[currentIndex];
+    let timer;
+
+    if (currentMedia.type === 'image') {
+      timer = setTimeout(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % medias.length);
+      }, currentMedia.duration);
+    }
+
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [currentIndex]);
+
+  const handleVideoEnd = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % medias.length);
+  };
+
+  const currentMedia = medias[currentIndex];
+
   return (
     <section id="home" className="relative overflow-hidden pt-28">
       <div className="absolute inset-0 bg-hero-gradient opacity-90" />
@@ -64,8 +99,35 @@ export default function Hero() {
           className="relative flex items-center justify-center"
         >
           <div className="absolute inset-0 rounded-[2rem] border border-red-600/30 bg-black/40 shadow-neon" />
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-black/60 shadow-xl shadow-red-900/10">
-            <img src={carro} alt="Carro premium" className="h-[360px] w-full object-contain object-center sm:h-[560px] sm:object-cover" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-black/60 shadow-xl shadow-red-900/10 w-full h-full">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="h-[360px] w-full sm:h-[560px]"
+              >
+                {currentMedia.type === 'video' ? (
+                  <video
+                    key={currentMedia.src}
+                    src={currentMedia.src}
+                    autoPlay
+                    muted
+                    playsInline
+                    onEnded={handleVideoEnd}
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <img
+                    src={currentMedia.src}
+                    alt="Carro premium"
+                    className="h-full w-full object-cover"
+                  />
+                )}
+              </motion.div>
+            </AnimatePresence>
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
             <div className="absolute bottom-6 left-6 rounded-3xl border border-red-500/40 bg-black/60 px-6 py-4 text-white shadow-glow">
               <p className="text-xs uppercase tracking-[0.3em] text-red-300">Automotive tuning</p>
