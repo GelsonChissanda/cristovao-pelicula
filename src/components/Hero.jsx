@@ -1,51 +1,94 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import carro from "../assets/hero-car.jpeg";
 import video1 from "../assets/video1.mp4";
 import video3 from "../assets/video3.mp4";
 import video4 from "../assets/video4.mp4";
 import premium from "../assets/premium.jpeg";
-
 import resultado from "../assets/resultado.jpeg"
 import modelo from "../assets/modelo.jpeg"
+import processo from "../assets/processo.mp4";
+
+// 🎵 ALTERA AQUI O CAMINHO DA TUA MÚSICA
+import musica from "../assets/mete-na-posicao.mp3";
 
 const medias = [
   { type: "video", src: video1, duration: 3000 },
+  { type: "video", src: processo, duration: 3000 },
   { type: "image", src: resultado, duration: 3000 },
   { type: "video", src: video3, duration: 3000 },
   { type: "video", src: video4, duration: 3000 },
   { type: "image", src: premium, duration: 3000 },
-
 ];
 
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [muted, setMuted] = useState(true);
+  const [userActivated, setUserActivated] = useState(false);
+  const audioRef = useRef(null);
+  const mediaRef = useRef(null);
 
+  // Intersection Observer — pausa/retoma conforme visibilidade
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!audioRef.current || !userActivated) return;
+        if (entry.isIntersecting) {
+          audioRef.current.play().catch(() => {});
+        } else {
+          audioRef.current.pause();
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    if (mediaRef.current) observer.observe(mediaRef.current);
+    return () => observer.disconnect();
+  }, [userActivated]);
+
+  // Quando utilizador activa o som
+  const toggleSound = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (!userActivated) {
+      setUserActivated(true);
+      setMuted(false);
+      audio.muted = false;
+      audio.play().catch(() => {});
+    } else {
+      const newMuted = !muted;
+      setMuted(newMuted);
+      audio.muted = newMuted;
+      if (!newMuted) audio.play().catch(() => {});
+    }
+  };
+
+  // Slideshow para imagens
   useEffect(() => {
     const currentMedia = medias[currentIndex];
     let timer;
-
     if (currentMedia.type === 'image') {
       timer = setTimeout(() => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % medias.length);
+        setCurrentIndex((prev) => (prev + 1) % medias.length);
       }, currentMedia.duration);
     }
-
-    return () => {
-      if (timer) clearTimeout(timer);
-    };
+    return () => { if (timer) clearTimeout(timer); };
   }, [currentIndex]);
 
   const handleVideoEnd = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % medias.length);
+    setCurrentIndex((prev) => (prev + 1) % medias.length);
   };
 
   const currentMedia = medias[currentIndex];
 
   return (
     <section id="home" className="relative overflow-hidden pt-28">
+      <audio ref={audioRef} src={musica} loop muted />
+
       <div className="absolute inset-0 bg-hero-gradient opacity-90" />
       <div className="absolute left-1/2 top-16 h-72 w-72 -translate-x-1/2 rounded-full bg-neon-red/10 blur-3xl" />
+
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
         <div className="relative z-10 flex flex-col justify-center gap-8">
           <motion.div
@@ -97,12 +140,23 @@ export default function Hero() {
           </div>
         </div>
 
+        {/* Lado direito — media + botão de som */}
         <motion.div
+          ref={mediaRef}
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
           className="relative flex items-center justify-center"
         >
+          {/* Botão de som */}
+          <button
+            onClick={toggleSound}
+            title={muted ? "Activar som" : "Desactivar som"}
+            className="absolute top-4 right-4 z-20 rounded-full bg-black/60 border border-white/10 px-3 py-2 text-lg text-white shadow-lg transition hover:bg-red-900/40"
+          >
+            {!userActivated ? '🔇' : muted ? '🔇' : '🔊'}
+          </button>
+
           <div className="absolute inset-0 rounded-[2rem] border border-red-600/30 bg-black/40 shadow-neon" />
           <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-black/60 shadow-xl shadow-red-900/10 w-full">
             <AnimatePresence mode="wait">
