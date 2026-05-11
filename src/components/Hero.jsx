@@ -2,12 +2,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import carro from "../assets/hero-car.jpeg";
 import video1 from "../assets/video1.mp4";
+import video3 from "../assets/video3.mp4";
+import video4 from "../assets/video4.mp4";
+import premium from "../assets/premium.jpeg";
+
 import resultado from "../assets/resultado.jpeg"
 import modelo from "../assets/modelo.jpeg"
 
 const medias = [
   { type: "video", src: video1, duration: 3000 },
   { type: "image", src: resultado, duration: 3000 },
+  { type: "video", src: video3, duration: 3000 },
+  { type: "video", src: video4, duration: 3000 },
+  { type: "image", src: premium, duration: 3000 },
+
 ];
 
 export default function Hero() {
