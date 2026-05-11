@@ -3,17 +3,18 @@ import { AnimatePresence, motion } from 'framer-motion';
 import premium from "../assets/premium.jpeg";
 import alarme from "../assets/alarme.jpeg";
 import acessorio from "../assets/acessorio.jpeg";
+import modelo from "../assets/modelo.jpeg";
 
 const images = [
   {
     title: 'Película Premium',
     subtitle: 'Aproveite!',
-    src: premium,
+    src: modelo,
   },
   {
     title: 'GPS e Detalhes',
     subtitle: 'Tecnologia integrada',
-    src: 'https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80',
+    src: premium,
   },
   {
     title: 'Alarme Automotivo',
