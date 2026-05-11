@@ -9,7 +9,7 @@ import resultado2 from "../assets/resultado2.jpeg"
 const medias = [
   { type: "video", src: video1, duration: 2000 },
   { type: "image", src: resultado, duration: 2000 },
-  { type: "video", src: video2, duration: 1000 },
+  { type: "video", src: video2, duration: 2000 },
   { type: "image", src: resultado2, duration: 2000 },
 ];
 
