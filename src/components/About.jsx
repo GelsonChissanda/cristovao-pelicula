@@ -13,11 +13,11 @@ export default function About() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-[1.75rem] border border-white/10 bg-card-black/80 p-6 shadow-neon">
                 <p className="text-sm uppercase tracking-[0.35em] text-red-300">Experiência</p>
-                <p className="mt-3 text-white">Anos de atuação com soluções de alta performance.</p>
+                <p className="mt-3 text-white">Anos de atuação com soluções de alta performance</p>
               </div>
               <div className="rounded-[1.75rem] border border-white/10 bg-card-black/80 p-6 shadow-neon">
                 <p className="text-sm uppercase tracking-[0.35em] text-red-300">Qualidade</p>
-                <p className="mt-3 text-white">Materiais premium e acabamento impecável em cada projeto.</p>
+                <p className="mt-3 text-white">Materiais premium e acabamento impecável em cada projeto</p>
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
             <div className="absolute bottom-6 left-6 rounded-3xl bg-black/70 px-6 py-4 text-white shadow-neon">
               <p className="text-sm uppercase tracking-[0.35em] text-red-300">Oficina</p>
-              <p className="mt-2 text-lg font-semibold">Ambiente projetado para veículos de alto padrão.</p>
+              <p className="mt-2 text-lg font-semibold">Ambiente projetado para veículos de alto padrão</p>
             </div>
           </motion.div>
         </div>

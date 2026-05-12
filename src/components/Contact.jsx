@@ -10,12 +10,12 @@ export default function Contact() {
               Contacto
             </p>
             <h2 className="mt-4 text-4xl font-black tracking-[-0.03em] text-white">
-              Entre em contato e agende seu serviço agora.
+              Entre em contato e agende seu serviço agora
             </h2>
             <p className="mt-4 max-w-xl text-slate-300">
               Nossa equipe está pronta para atender com rapidez e
               profissionalismo. Fale conosco via WhatsApp e descubra a
-              experiência Cristóvão Películas..
+              experiência Cristóvão Películas...
             </p>
 
             <div className="mt-10 space-y-6">

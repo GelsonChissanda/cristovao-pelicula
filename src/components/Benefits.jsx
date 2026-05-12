@@ -10,7 +10,7 @@ import component from "../assets/component.png";
 const benefits = [
   { title: 'Proteção UV', description: 'Barreira avançada contra raios solares agressivos', icon: solar },
   { title: 'Redução de Calor', description: 'Conforto térmico superior em todas as condições', icon: calor },
-  { title: 'Mais Privacidade', description: 'Ambiente interno discreto e valorizado.', icon: security },
+  { title: 'Mais Privacidade', description: 'Ambiente interno discreto e valorizado', icon: security },
   { title: 'Acabamento Profissional', description: 'Detalhes refinados com padrão de excelência', icon: acabemento },
   { title: 'Instalação Rápida', description: 'Serviço ágil sem comprometer qualidade', icon: service },
   { title: 'Materiais de Qualidade', description: 'Componentes premium para desempenho confiável', icon: component },
