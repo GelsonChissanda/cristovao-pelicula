@@ -1,12 +1,19 @@
 import { motion } from 'framer-motion';
+import solar from "../assets/solar.png";
+import calor from "../assets/calor.png";
+import security from "../assets/security.png";
+import acabemento from "../assets/acabamento.png";
+import service from "../assets/service.png";
+import component from "../assets/component.png";
+
 
 const benefits = [
-  { title: 'Proteção UV', description: 'Barreira avançada contra raios solares agressivos.', icon: '☀️' },
-  { title: 'Redução de Calor', description: 'Conforto térmico superior em todas as condições.', icon: '🔥' },
-  { title: 'Mais Privacidade', description: 'Ambiente interno discreto e valorizado.', icon: '🛡️' },
-  { title: 'Acabamento Profissional', description: 'Detalhes refinados com padrão de excelência.', icon: '✨' },
-  { title: 'Instalação Rápida', description: 'Serviço ágil sem comprometer qualidade.', icon: '⚡' },
-  { title: 'Materiais de Qualidade', description: 'Componentes premium para desempenho confiável.', icon: '🏁' },
+  { title: 'Proteção UV', description: 'Barreira avançada contra raios solares agressivos', icon: solar },
+  { title: 'Redução de Calor', description: 'Conforto térmico superior em todas as condições', icon: calor },
+  { title: 'Mais Privacidade', description: 'Ambiente interno discreto e valorizado.', icon: security },
+  { title: 'Acabamento Profissional', description: 'Detalhes refinados com padrão de excelência', icon: acabemento },
+  { title: 'Instalação Rápida', description: 'Serviço ágil sem comprometer qualidade', icon: service },
+  { title: 'Materiais de Qualidade', description: 'Componentes premium para desempenho confiável', icon: component },
 ];
 
 export default function Benefits() {
@@ -30,7 +37,7 @@ export default function Benefits() {
                 className="rounded-[2rem] border border-white/10 bg-card-black/80 p-6 shadow-neon transition hover:-translate-y-1 hover:border-red-500/30"
               >
                 <div className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-3xl bg-red-900/20 text-2xl text-neon-red shadow-neon">
-                  {item.icon}
+                  <img src={item.icon} alt={item.title} className="h-10 w-10 object-contain" />
                 </div>
                 <h3 className="mb-2 text-xl font-semibold text-white">{item.title}</h3>
                 <p className="text-slate-400">{item.description}</p>
